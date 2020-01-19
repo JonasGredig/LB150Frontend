@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Employee} from '../shared/employee';
 import {Department} from '../shared/department';
+import {RestService} from '../shared/rest.service';
 
-const ELEMENT_DATA: Employee[] = [
-  {id: 1, firstName: 'Jonas', lastName: 'Gredig', departmentId: 1, email: 'jongredig@gmail.com', votes:  0},
-  {id: 2, firstName: 'Peter', lastName: 'Silie', departmentId: 1, email: 'Peterli@gmail.com', votes:  5},
-  {id: 3, firstName: 'Hans', lastName: 'Gredig', departmentId: 1, email: 'hasniii@gmail.com', votes:  0},
-  {id: 4, firstName: 'Lara', lastName: 'Petto', departmentId: 1, email: 'huhu123455@gmail.com', votes:  0},
 
-];
 
 const departmentslool: Department[] = [
   {id: 1, name: 'Geschäftsleitung', division: 'G'},
@@ -25,13 +20,19 @@ const departmentslool: Department[] = [
 export class EmployeelistComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'departmentId', 'email', 'votes', 'deleteButton'];
-  dataSource: Employee[] = ELEMENT_DATA;
+  dataSource: Employee[];
 
   departments: Department[] = departmentslool;
 
-  constructor() { }
+  constructor(private api: RestService) { }
 
   ngOnInit() {
+    this.getEmployees();
+  }
+
+  getEmployees() {
+    return this.api.getEmployees()
+      .subscribe(employees => this.dataSource = employees);
   }
 
 }
