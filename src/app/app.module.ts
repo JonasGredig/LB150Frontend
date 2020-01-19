@@ -6,7 +6,7 @@ import {EmployeelistComponent} from './employeelist/employeelist.component';
 import {DepartmentlistComponent} from './departmentlist/departmentlist.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatSliderModule, MatToolbarModule} from '@angular/material';
+import {MatCardModule, MatSliderModule, MatTableModule, MatToolbarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,8 @@ import {MatSliderModule, MatToolbarModule} from '@angular/material';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSliderModule,
+    MatCardModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
