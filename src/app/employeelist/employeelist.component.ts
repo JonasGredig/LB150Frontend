@@ -11,7 +11,7 @@ const ELEMENT_DATA: Employee[] = [
 ];
 
 const departmentslool: Department[] = [
-  {id: 1, name: 'Geschäfftsleitung', division: 'G'},
+  {id: 1, name: 'Geschäftsleitung', division: 'G'},
   {id: 2, name: 'HR', division: 'GH'},
   {id: 3, name: 'IT', division: 'GI'},
   {id: 4, name: 'Recht', division: 'GR'},
@@ -24,7 +24,7 @@ const departmentslool: Department[] = [
 })
 export class EmployeelistComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'departmentId', 'email', 'votes'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'departmentId', 'email', 'votes', 'deleteButton'];
   dataSource: Employee[] = ELEMENT_DATA;
 
   departments: Department[] = departmentslool;

@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatCardModule,
-  MatFormFieldModule,
+  MatFormFieldModule, MatIconModule,
   MatInputModule, MatSelectModule,
   MatSliderModule,
   MatTableModule,
@@ -34,6 +34,7 @@ import {
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,7 +16,7 @@ const ELEMENT_DATA: Department[] = [
 })
 export class DepartmentlistComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'division'];
+  displayedColumns: string[] = ['id', 'name', 'division', 'deleteButton'];
   dataSource: Department[] = ELEMENT_DATA;
 
   constructor() { }
