@@ -6,7 +6,15 @@ import {EmployeelistComponent} from './employeelist/employeelist.component';
 import {DepartmentlistComponent} from './departmentlist/departmentlist.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCardModule, MatSliderModule, MatTableModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule, MatSelectModule,
+  MatSliderModule,
+  MatTableModule,
+  MatToolbarModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -22,6 +30,10 @@ import {MatCardModule, MatSliderModule, MatTableModule, MatToolbarModule} from '
     MatSliderModule,
     MatCardModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

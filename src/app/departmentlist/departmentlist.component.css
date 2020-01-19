@@ -1,0 +1,11 @@
+table {
+  width: 100%;
+}
+#departmentTable {
+  margin: 10px;
+  padding: 10px;
+}
+
+mat-form-field {
+  margin: 10px;
+}

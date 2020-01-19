@@ -5,3 +5,7 @@ table {
   margin: 10px;
   padding: 10px;
 }
+
+mat-form-field {
+  margin: 10px;
+}

@@ -44,6 +44,33 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <form class="example-form">
+      <h3>Neuer Mitarbeiter hinzufügen</h3>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Vorname" value="">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nachname">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email Adresse">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Abteilung</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let department of departments" [value]="department.id">
+            {{department.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Mitarbeiter hinzufügen</button>
+    </form>
   </mat-card>
 </div>
 
