@@ -34,6 +34,12 @@ export class RestService {
       );
   }
 
+  addEmployee(employee: Employee) {
+    return this.http.post<Employee>(this.endpoint + '/employee-management/emloyees/', employee).pipe(
+      retry(1),
+      catchError(this.handleError));
+  }
+
   likeEmployee(id: number) {
     return this.http.get<Employee>(this.endpoint + 'employee-management/vote/' + id)
       .pipe(
@@ -50,6 +56,14 @@ export class RestService {
       );
   }
 
+  addDepartment(department: Department) {
+    return this.http.post<Department>(this.endpoint + '/department-management/departments/', department).pipe(
+      retry(1),
+      catchError(this.handleError));
+  }
+
+
+
   handleError(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
@@ -62,4 +76,6 @@ export class RestService {
     window.alert(errorMessage);
     return throwError(errorMessage);
   }
+
+
 }

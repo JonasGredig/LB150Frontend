@@ -16,6 +16,12 @@ export class EmployeelistComponent implements OnInit {
 
   departments: Department[];
 
+
+  firstName: string;
+  lastName: string;
+  email: string;
+  departmentId: number;
+
   constructor(private api: RestService) { }
 
   ngOnInit() {
@@ -35,6 +41,17 @@ export class EmployeelistComponent implements OnInit {
 
   likeEmployee(id: number) {
     this.api.likeEmployee(id).subscribe();
+  }
+
+  addEmployee() {
+    let employee: Employee = new Employee();
+    employee.firstName = this.firstName;
+    employee.lastName = this.lastName;
+    employee.email = this.email;
+    employee.departmentId = this.departmentId;
+    employee.id = 0;
+    employee.votes = 0;
+    this.api.addEmployee(employee).subscribe();
   }
 
 }
