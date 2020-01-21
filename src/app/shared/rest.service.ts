@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError, map, retry} from 'rxjs/operators';
 import {Employee} from './employee';
+import {Department} from "./department";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class RestService {
   constructor(private http: HttpClient) {
   }
 
-  endpoint = 'http://localhost:8080/SpringRestExample-0.0.1-SNAPSHOT/api/rest/';
+  endpoint = 'http://localhost:8080/LB150_war_exploded/api/rest/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -27,6 +28,22 @@ export class RestService {
 
   getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.endpoint + 'employee-management/employees')
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      );
+  }
+
+  likeEmployee(id: number) {
+    return this.http.get<Employee>(this.endpoint + 'employee-management/vote/' + id)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      );
+  }
+
+  getDepartments(): Observable<Department[]> {
+    return this.http.get<Department[]>(this.endpoint + 'department-management/departments')
       .pipe(
         retry(1),
         catchError(this.handleError)

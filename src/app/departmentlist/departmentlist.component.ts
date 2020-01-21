@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Department} from '../shared/department';
+import {RestService} from "../shared/rest.service";
 
 const ELEMENT_DATA: Department[] = [
   {id: 1, name: 'Geschäfftsleitung', division: 'G'},
@@ -16,12 +17,18 @@ const ELEMENT_DATA: Department[] = [
 })
 export class DepartmentlistComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'division', 'deleteButton'];
+  displayedColumns: string[] = ['id', 'name', 'division'];
   dataSource: Department[] = ELEMENT_DATA;
 
-  constructor() { }
+  constructor(private api: RestService) { }
 
   ngOnInit() {
+    //this.getDepartments();
+  }
+
+  getDepartments() {
+    return this.api.getDepartments()
+      .subscribe(departments => this.dataSource = departments);
   }
 
 }
